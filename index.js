@@ -97,6 +97,27 @@ app.post('/books/edit/:id', async (req, res) => {
   }
 });
 
+app.get('/', async (req, res) => {
+  let query = 'SELECT * FROM book';
+  const sort = req.query.sort;
+
+  if (sort === 'title') {
+    query += ' ORDER BY title';
+  } else if (sort === 'newest') {
+    query += ' ORDER BY date_read DESC';
+  } else if (sort === 'best') {
+    query += ' ORDER BY rating DESC';
+  }
+
+  try {
+    const result = await db.query(query);
+    const books = result.rows;
+    res.render('index.ejs', { books: books });
+  } catch (error) {
+    console.error(error.stack);
+  }
+});
+
 app.get('/books/:id', async (req, res) => {
   const id = req.params.id;
   try {

@@ -38,9 +38,18 @@ body {
   margin-bottom: 20px;
 }
 
+.sub-heading {
+  font-size: 2rem;
+}
+
 a {
   text-decoration: none;
   color: rgb(135, 112, 156);
+}
+
+.main-header > a {
+  text-decoration: none;
+  color: green;
 }
 
 .main-content {
