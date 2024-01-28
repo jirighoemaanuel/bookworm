@@ -9,7 +9,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     /> -->
-    <link rel="stylesheet" href="../public/styles/main.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
     <title>BookWorm</title>
   </head>
   <body>
@@ -39,163 +39,49 @@
             >please read <a href="#">this FAQ page</a> about these notes</strong
           >, if you have any questions. You can also <a href="#">email me</a>.
         </p>
+        <a href="/books/new" class="new-book-button">Add New Book</a>
       </div>
     </section>
     <hr />
 
     <section id="main-section" class="main-section">
+     <% if (locals.books) { %>
+      <% locals.books.forEach((book) => {%>
       <div class="main-content">
+        
         <div class="book-info">
           <img
-            src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg"
+            src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg"
             alt=""
             class="book-image"
           />
           <div class="book-details">
             <h2>
-              <a href="#" class="book-title-link"
-                >You Can Negotiate anything - By Hereb Cohen</a
+              <a href="books/<%= book.id %>" class="book-title-link"
+                ><%= book.title %> - By <%= book.author %></a
               >
             </h2>
 
             <p class="date-read">
-              Date Read: 2023-08-02. How Strongly I recommend It: 10/10
+              Date Read: <%= book.date_read %>. How Strongly I recommend It: <%= book.rating %>/10
             </p>
 
             <p class="book-description">
-              Everything is negotiable. Challenge authority. You have the power
-              in any situation. This is how to realize it and use it. A
-              must-read classic from 1980 from a master negotiator. My notes
-              here aren't enough because the little book is filled with so many
-              memorable stories — examples of great day-to-day moments of
-              negotiation that will stick in your head for when you need them.
-              (I especially loved the one about the power of the prisoner in
-              solitary confinement.) So go buy and read the book. I'm giving it
-              a 10/10 rating even though the second half of the book loses
-              steam, because the first half is so crucial.
+              <%= book.description %>
             </p>
           </div>
         </div>
 
         <p class="external-links">
-          <a href="#">Read my notes</a>, or go to the
-          <a href="#">Amazon page</a> for details and reviews.
+          <a href="books/<%= book.id %>">Read my notes</a>, or go to the
+          <a href="<%= book.amazon_link %>">Amazon page</a> for details and reviews.
         </p>
       </div>
-      <div class="main-content">
-        <div class="book-info">
-          <img
-            src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg"
-            alt=""
-            class="book-image"
-          />
-          <div class="book-details">
-            <h2>
-              <a href="#" class="book-title-link"
-                >You Can Negotiate anything - By Hereb Cohen</a
-              >
-            </h2>
-
-            <p class="date-read">
-              Date Read: 2023-08-02. How Strongly I recommend It: 10/10
-            </p>
-
-            <p class="book-description">
-              Everything is negotiable. Challenge authority. You have the power
-              in any situation. This is how to realize it and use it. A
-              must-read classic from 1980 from a master negotiator. My notes
-              here aren't enough because the little book is filled with so many
-              memorable stories — examples of great day-to-day moments of
-              negotiation that will stick in your head for when you need them.
-              (I especially loved the one about the power of the prisoner in
-              solitary confinement.) So go buy and read the book. I'm giving it
-              a 10/10 rating even though the second half of the book loses
-              steam, because the first half is so crucial.
-            </p>
-          </div>
-        </div>
-
-        <p class="external-links">
-          <a href="#">Read my notes</a>, or go to the
-          <a href="#">Amazon page</a> for details and reviews.
-        </p>
+      
+      
       </div>
-      <div class="main-content">
-        <div class="book-info">
-          <img
-            src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg"
-            alt=""
-            class="book-image"
-          />
-          <div class="book-details">
-            <h2>
-              <a href="#" class="book-title-link"
-                >You Can Negotiate anything - By Hereb Cohen</a
-              >
-            </h2>
-
-            <p class="date-read">
-              Date Read: 2023-08-02. How Strongly I recommend It: 10/10
-            </p>
-
-            <p class="book-description">
-              Everything is negotiable. Challenge authority. You have the power
-              in any situation. This is how to realize it and use it. A
-              must-read classic from 1980 from a master negotiator. My notes
-              here aren't enough because the little book is filled with so many
-              memorable stories — examples of great day-to-day moments of
-              negotiation that will stick in your head for when you need them.
-              (I especially loved the one about the power of the prisoner in
-              solitary confinement.) So go buy and read the book. I'm giving it
-              a 10/10 rating even though the second half of the book loses
-              steam, because the first half is so crucial.
-            </p>
-          </div>
-        </div>
-
-        <p class="external-links">
-          <a href="#">Read my notes</a>, or go to the
-          <a href="#">Amazon page</a> for details and reviews.
-        </p>
-      </div>
-      <div class="main-content">
-        <div class="book-info">
-          <img
-            src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg"
-            alt=""
-            class="book-image"
-          />
-          <div class="book-details">
-            <h2>
-              <a href="#" class="book-title-link"
-                >You Can Negotiate anything - By Hereb Cohen</a
-              >
-            </h2>
-
-            <p class="date-read">
-              Date Read: 2023-08-02. How Strongly I recommend It: 10/10
-            </p>
-
-            <p class="book-description">
-              Everything is negotiable. Challenge authority. You have the power
-              in any situation. This is how to realize it and use it. A
-              must-read classic from 1980 from a master negotiator. My notes
-              here aren't enough because the little book is filled with so many
-              memorable stories — examples of great day-to-day moments of
-              negotiation that will stick in your head for when you need them.
-              (I especially loved the one about the power of the prisoner in
-              solitary confinement.) So go buy and read the book. I'm giving it
-              a 10/10 rating even though the second half of the book loses
-              steam, because the first half is so crucial.
-            </p>
-          </div>
-        </div>
-
-        <p class="external-links">
-          <a href="#">Read my notes</a>, or go to the
-          <a href="#">Amazon page</a> for details and reviews.
-        </p>
-      </div>
+      <% })%>
+      <% }%>
     </section>
 
     <section id="footer-section"></section>
