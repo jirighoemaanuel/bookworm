@@ -56,6 +56,17 @@ app.post('/books/new', (req, res) => {
   }
 });
 
+app.get('/books/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await db.query('SELECT * FROM book WHERE id = $1', [id]);
+    const book = result.rows[0];
+    res.render('edit.ejs', { book: book });
+  } catch (error) {
+    console.error(error.stack);
+  }
+});
+
 app.get('/books/:id', async (req, res) => {
   const id = req.params.id;
   try {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/notes.css" />
+    <title>BookWorm</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <section id="header-section">
+      <div class="header-content">
+        <h1 class="main-header">Emmanuel Weyinmi</h1>
+        <h2>Add new book</h2>
+      </div>
+      <div>
+        
+    </section>
+
+<section id="main-section" class="main-section">
+  <form action="/books/edit/<%= locals.book.id%>" method="POST">
+    <input type="text" name="author" id="author"  placeholder="Author's name" value="<%= locals.book.author%>">
+    <input type="text" name="title" id="title" placeholder="Book title" value="<%= locals.book.title%>">
+    <textarea name="description" id="description" placeholder="book summary/description"><%= locals.book.description %></textarea>
+    <textarea name="note" id="note" placeholder="Your personal note on the book"><%= locals.book.note %></textarea>
+    <input type="text" name="isbn" id="isbn" placeholder="isbn, eg: 0449214923" value="<%= locals.book.isbn%>">
+    <input type="text" name="rating" id="rating" placeholder="rating out of 10" value="<%= locals.book.rating%>">
+    <input type="text" name="date_read" id="date_read" placeholder="Date Read e.g 2024-01-20" value="<%= locals.book.date_read%>">
+    <input type="text" name="amazon_link" id="amazon_link" placeholder="Amazon book link" value="<%= locals.book.amazon_link%>">
+    <button type="submit">Edit</button>
+  </form>
+</section>
+
+    <section id="footer-section"></section>
+	
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script> -->
+  </body>
+</html>
