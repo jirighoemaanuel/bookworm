@@ -67,6 +67,36 @@ app.get('/books/edit/:id', async (req, res) => {
   }
 });
 
+app.post('/books/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  let bookEdit = req.body;
+  bookEdit['id'] = id;
+  try {
+    try {
+      await db.query(
+        'UPDATE book SET author = $2, title = $3, description = $4, note = $5, isbn = $6, rating = $7, date_read = $8, amazon_link = $9 WHERE id = $1',
+        [
+          bookEdit.id,
+          bookEdit.author,
+          bookEdit.title,
+          bookEdit.description,
+          bookEdit.note,
+          bookEdit.isbn,
+          bookEdit.rating,
+          bookEdit.date_read,
+          bookEdit.amazon_link,
+        ]
+      );
+    } catch (error) {
+      console.error(error.stack);
+    }
+
+    res.redirect('/books');
+  } catch (error) {
+    console.error(error.stack);
+  }
+});
+
 app.get('/books/:id', async (req, res) => {
   const id = req.params.id;
   try {
